@@ -1,0 +1,17 @@
+{
+  "name": "online-examination-system",
+  "version": "1.0.0",
+  "description": "P18 Online Examination System using one HTML frontend, Express and MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.3",
+    "express-session": "^1.19.0",
+    "mongodb": "^6.21.0"
+  }
+}

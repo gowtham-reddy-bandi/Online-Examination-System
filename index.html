@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Examination System</title>
+<style>
+:root{--navy:#173b75;--blue:#2563eb;--blue-dark:#1d4ed8;--bg:#f3f6fb;--card:#fff;--text:#172033;--muted:#64748b;--border:#dce4ef;--green:#15803d;--red:#b91c1c;--shadow:0 12px 34px rgba(15,35,70,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:9px;padding:11px 16px;background:var(--blue);color:#fff;font-weight:650}button:hover{background:var(--blue-dark)}button:disabled{opacity:.55;cursor:not-allowed}.secondary{background:#eaf0fb;color:var(--navy)}.secondary:hover{background:#dce7fb}.danger{background:#fee2e2;color:#991b1b}.danger:hover{background:#fecaca}.outline{background:#fff;color:var(--navy);border:1px solid var(--border)}.hidden{display:none!important}.muted{color:var(--muted)}.small{font-size:.88rem}.container{width:min(1180px,94%);margin:28px auto}.brand{font-size:1.45rem;font-weight:800;color:var(--navy);letter-spacing:-.03em}.brand span{color:var(--blue)}.auth-wrap{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;width:min(1050px,94%);margin:auto;padding:28px 0}.hero{padding:32px}.hero h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.12;color:var(--navy);margin:18px 0}.hero p{font-size:1.08rem;color:var(--muted);max-width:520px}.hero-list{display:grid;gap:12px;margin-top:28px}.hero-list div{background:#fff;border:1px solid var(--border);border-radius:12px;padding:13px 15px}.card{background:var(--card);border:1px solid #edf1f7;border-radius:16px;box-shadow:var(--shadow);padding:26px}.auth-card{padding:32px}.auth-card h2{margin:0 0 6px;color:var(--navy)}.tabs{display:flex;gap:8px;margin:20px 0}.tabs button{flex:1}.tabs .selected{background:var(--navy)}.field{display:grid;gap:6px;margin:13px 0}.field label{font-size:.92rem;font-weight:650}.field input,.field select,.field textarea{width:100%;border:1px solid var(--border);border-radius:9px;padding:11px 12px;background:#fff;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #dbeafe}.field textarea{min-height:90px;resize:vertical}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}.full{grid-column:1/-1}.message{min-height:24px;margin:10px 0 0;font-size:.92rem}.message.error{color:var(--red)}.message.success{color:var(--green)}.topbar{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:5}.topbar-inner{width:min(1180px,94%);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}.user-info{display:flex;align-items:center;gap:12px}.avatar{width:38px;height:38px;border-radius:50%;background:#dbeafe;color:var(--navy);display:grid;place-items:center;font-weight:800}.layout{display:grid;grid-template-columns:230px 1fr;gap:22px}.sidebar{align-self:start;background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px;position:sticky;top:82px}.nav-btn{display:block;width:100%;text-align:left;margin:4px 0;background:transparent;color:#334155;font-weight:600}.nav-btn:hover,.nav-btn.active{background:#eaf1ff;color:var(--navy)}.main{min-width:0}.page-title{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin:0 0 22px}.page-title h1{margin:0;color:var(--navy);font-size:1.8rem}.page-title p{margin:5px 0 0;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-bottom:22px}.stat{background:#fff;border:1px solid var(--border);border-radius:13px;padding:18px}.stat .number{font-size:1.8rem;font-weight:800;color:var(--navy)}.stat .label{color:var(--muted);font-size:.9rem}.panel{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px}.panel h2,.panel h3{margin-top:0;color:var(--navy)}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}.toolbar input,.toolbar select{padding:10px;border:1px solid var(--border);border-radius:8px;min-width:180px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:600px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #edf1f7;vertical-align:top}th{color:#475569;font-size:.88rem;background:#f8fafc}td{font-size:.94rem}.badge{display:inline-block;padding:4px 9px;border-radius:99px;background:#eaf1ff;color:var(--navy);font-size:.8rem;font-weight:700}.badge.green{background:#dcfce7;color:#166534}.badge.red{background:#fee2e2;color:#991b1b}.empty{padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--border);border-radius:10px}.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.course-card{border:1px solid var(--border);border-radius:12px;padding:18px;background:#fff}.course-card h3{color:var(--blue);margin:0 0 6px}.course-card p{margin:5px 0;color:var(--muted)}.question-row{padding:16px 0;border-bottom:1px solid #edf1f7}.question-row:last-child{border-bottom:0}.options-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.option{border:1px solid var(--border);border-radius:9px;padding:11px;display:flex;gap:8px;align-items:flex-start}.option input{margin-top:5px}.exam-top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.timer{font-size:1.2rem;font-weight:800;color:var(--red);background:#fff1f2;border-radius:9px;padding:10px 14px}.progress{height:8px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:14px 0}.progress div{height:100%;width:0;background:var(--blue);transition:width .2s}.notice{background:#fffbeb;border:1px solid #fde68a;color:#854d0e;border-radius:10px;padding:12px 14px;margin-bottom:14px}.right-actions{display:flex;gap:8px;flex-wrap:wrap}.result-score{font-size:2.4rem;font-weight:850;color:var(--navy)}.footer-note{color:var(--muted);font-size:.82rem;margin-top:18px;text-align:center}.result-card{border:1px solid var(--border);border-radius:12px;padding:18px;margin:12px 0;background:#fff}.result-chart-row{display:flex;gap:24px;align-items:center;flex-wrap:wrap}.pie-chart{width:190px;height:190px;border-radius:50%;flex:0 0 190px;border:1px solid #e2e8f0}.chart-legend{display:grid;gap:9px}.legend-item{display:flex;gap:9px;align-items:center}.legend-dot{width:12px;height:12px;border-radius:3px;display:inline-block}.result-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:16px}.result-metric{background:#f8fafc;border-radius:9px;padding:10px}.result-metric strong{display:block;font-size:1.2rem;color:var(--navy)}
+@media(max-width:850px){.auth-wrap{grid-template-columns:1fr}.hero{padding:12px 8px}.hero-list{display:none}.layout{grid-template-columns:1fr}.sidebar{position:static;display:flex;overflow:auto;gap:5px}.nav-btn{width:auto;white-space:nowrap}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:550px){.card,.panel,.auth-card{padding:18px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.stats{grid-template-columns:1fr}.options-list{grid-template-columns:1fr}.topbar-inner{align-items:flex-start}.user-info{font-size:.85rem}.container{margin:18px auto}}
+</style>
+</head>
+<body>
+<div id="authView">
+  <div class="auth-wrap">
+    <div class="hero">
+      <div class="brand">Online<span>Exam</span></div>
+      <h1>Online Examination System</h1>
+      <p>A simple platform for subject management, multiple-choice examinations, timed submissions, automatic evaluation and result ranking.</p>
+      <div class="hero-list">
+        <div>✓ Secure password-based sign in</div>
+        <div>✓ Save answers before final submission</div>
+        <div>✓ Automatic evaluation and ranked results</div>
+      </div>
+    </div>
+    <div class="card auth-card">
+      <h2 id="authHeading">Welcome back</h2>
+      <p class="muted" id="authSubheading">Sign in to continue to your account.</p>
+      <div class="tabs">
+        <button type="button" id="loginTab" class="selected" onclick="switchAuth('login')">Login</button>
+        <button type="button" id="registerTab" class="secondary" onclick="switchAuth('register')">Register</button>
+      </div>
+      <form id="loginForm">
+        <div class="field"><label for="loginEmail">Email address</label><input id="loginEmail" type="email" autocomplete="username" required></div>
+        <div class="field"><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" required></div>
+        <button type="submit" style="width:100%">Login</button>
+        <p id="loginMessage" class="message" role="status"></p>
+      </form>
+      <form id="registerForm" class="hidden">
+        <div class="form-grid">
+          <div class="field full"><label for="regName">Full name</label><input id="regName" required maxlength="100"></div>
+          <div class="field"><label for="regRoll">Roll number</label><input id="regRoll" required maxlength="40"></div>
+          <div class="field"><label for="regContact">Contact number</label><input id="regContact" type="tel" required maxlength="20"></div>
+          <div class="field full"><label for="regEmail">Email address</label><input id="regEmail" type="email" required autocomplete="email"></div>
+          <div class="field full"><label for="regPassword">Password (minimum 8 characters)</label><input id="regPassword" type="password" minlength="8" required autocomplete="new-password"></div>
+        </div>
+        <button type="submit" style="width:100%">Create student account</button>
+        <p id="registerMessage" class="message" role="status"></p>
+      </form>
+      <p class="footer-note">Administrator accounts should be created or assigned by the system owner.</p>
+    </div>
+  </div>
+</div>
+
+<div id="appView" class="hidden">
+  <header class="topbar"><div class="topbar-inner">
+    <div class="brand">Online<span>Exam</span></div>
+    <div class="user-info"><div class="avatar" id="userAvatar">U</div><div><strong id="userName">User</strong><div class="muted small" id="userRole">Student</div></div><button class="outline" onclick="logout()">Log out</button></div>
+  </div></header>
+  <div class="container layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <section id="dashboardPage" class="app-page">
+        <div class="page-title"><div><h1 id="dashboardHeading">Dashboard</h1><p id="dashboardWelcome">Welcome.</p></div></div>
+        <div class="stats">
+          <div class="stat"><div class="number" id="statCourses">—</div><div class="label">Subjects</div></div>
+          <div class="stat"><div class="number" id="statExams">—</div><div class="label">Examinations</div></div>
+          <div class="stat"><div class="number" id="statResults">—</div><div class="label">Results recorded</div></div>
+        </div>
+        <div class="panel"><h2>Subjects</h2><div id="dashboardCourses" class="course-grid"><div class="empty">Loading subjects…</div></div></div>
+        <div class="panel"><h2>Recent results</h2><div id="dashboardResults" class="empty">Results will appear here when available.</div></div>
+      </section>
+
+      <section id="subjectsPage" class="app-page hidden">
+        <div class="page-title"><div><h1>Subject Management</h1><p>Each subject is identified by a unique code.</p></div></div>
+        <div id="subjectAdminPanel" class="panel hidden"><h2>Add subject</h2>
+          <form id="courseForm" class="form-grid">
+            <div class="field"><label for="courseCode">Subject code</label><input id="courseCode" required maxlength="30"></div>
+            <div class="field"><label for="courseName">Subject name</label><input id="courseName" required maxlength="100"></div>
+            <div class="field full"><label for="courseDescription">Description</label><textarea id="courseDescription"></textarea></div>
+            <div class="full"><button type="submit">Add subject</button><p id="courseMessage" class="message"></p></div>
+          </form>
+        </div>
+        <div class="panel"><h2>Available subjects</h2><div id="subjectsList" class="course-grid"></div></div>
+      </section>
+
+      <section id="questionsPage" class="app-page hidden">
+        <div class="page-title"><div><h1>Question Bank</h1><p>Create and maintain multiple-choice questions.</p></div></div>
+        <div id="questionAdminPanel" class="panel hidden"><h2 id="questionFormHeading">Add question</h2>
+          <form id="questionForm">
+            <div class="form-grid">
+              <div class="field"><label for="questionCourse">Subject</label><select id="questionCourse" required></select></div>
+              <div class="field"><label for="questionMarks">Marks</label><input id="questionMarks" type="number" min="1" max="100" value="1" required></div>
+              <div class="field full"><label for="questionText">Question</label><textarea id="questionText" required maxlength="1500"></textarea></div>
+              <div class="field"><label for="optionA">Option A</label><input id="optionA" required maxlength="500"></div>
+              <div class="field"><label for="optionB">Option B</label><input id="optionB" required maxlength="500"></div>
+              <div class="field"><label for="optionC">Option C</label><input id="optionC" required maxlength="500"></div>
+              <div class="field"><label for="optionD">Option D</label><input id="optionD" required maxlength="500"></div>
+              <div class="field"><label for="correctAnswer">Correct option</label><select id="correctAnswer" required><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select></div>
+            </div>
+            <button type="submit" id="questionSaveButton">Save question</button> <button type="button" class="secondary hidden" id="cancelQuestionEdit" onclick="resetQuestionForm()">Cancel edit</button>
+            <p id="questionMessage" class="message"></p>
+          </form>
+        </div>
+        <div class="panel"><div class="toolbar"><h2 style="margin:0">Questions</h2><select id="questionFilter"><option value="">All subjects</option></select><button class="secondary" onclick="loadQuestions()">Refresh</button></div><div id="questionsList"></div></div>
+      </section>
+
+      <section id="examsPage" class="app-page hidden">
+        <div class="page-title"><div><h1>Examinations</h1><p>Create timed exams or view exams available to students.</p></div></div>
+        <div id="examAdminPanel" class="panel hidden"><h2>Create examination</h2>
+          <form id="examForm" class="form-grid">
+            <div class="field"><label for="examName">Examination name</label><input id="examName" required maxlength="100"></div>
+            <div class="field"><label for="examCourse">Subject</label><select id="examCourse" required></select></div>
+            <div class="field"><label for="examDuration">Duration (minutes)</label><input id="examDuration" type="number" min="1" max="300" value="30" required></div>
+            <div class="field"><label for="examQuestionCount">Questions to include</label><input id="examQuestionCount" type="number" min="1" value="10" required></div>
+            <div class="field full"><label for="examStart">Start time (optional)</label><input id="examStart" type="datetime-local"></div>
+            <div class="full"><button type="submit">Create examination</button><p id="examMessage" class="message"></p></div>
+          </form>
+        </div>
+        <div class="panel"><h2 id="examListHeading">Available examinations</h2><div id="examsList"></div></div>
+      </section>
+
+      <section id="takeExamPage" class="app-page hidden">
+        <div class="panel">
+          <div class="exam-top"><div><h1 id="activeExamName">Examination</h1><p class="muted" id="activeExamMeta"></p></div><div class="timer" id="examTimer">00:00</div></div>
+          <div class="progress"><div id="examProgress"></div></div>
+          <div class="notice">Save keeps your answers editable. Submit is final and cannot be undone. When time expires, the examination is submitted automatically.</div>
+          <form id="attemptForm"><div id="attemptQuestions"></div>
+            <div class="right-actions"><button type="button" class="secondary" id="saveAnswersButton">Save answers</button><button type="submit" id="submitExamButton">Submit examination</button></div>
+            <p id="attemptMessage" class="message"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="resultsPage" class="app-page hidden">
+        <div class="page-title"><div><h1>Results & Leaderboard</h1><p>Results are ordered by marks, highest first.</p></div><button class="secondary" onclick="loadResults()">Refresh</button></div>
+        <div class="panel"><div id="resultsList"></div></div>
+      </section>
+
+      <section id="profilePage" class="app-page hidden">
+        <div class="page-title"><div><h1>Customize profile</h1><p>Update your personal details and change your password.</p></div></div>
+        <div class="panel">
+          <h2>Profile information</h2>
+          <form id="profileForm" class="form-grid">
+            <div class="field"><label for="profileName">Full name</label><input id="profileName" required maxlength="100"></div>
+            <div class="field"><label for="profileEmail">Email address</label><input id="profileEmail" type="email" required maxlength="254"></div>
+            <div class="field"><label for="profileContact">Contact number</label><input id="profileContact" type="tel" maxlength="20"></div>
+            <div class="field" id="profileRollField"><label for="profileRoll">Roll number</label><input id="profileRoll" maxlength="40"></div>
+            <div class="full"><button type="submit">Save profile</button><p id="profileMessage" class="message" role="status"></p></div>
+          </form>
+        </div>
+        <div class="panel">
+          <h2>Change password</h2>
+          <form id="passwordForm" class="form-grid">
+            <div class="field full"><label for="currentPassword">Current password</label><input id="currentPassword" type="password" autocomplete="current-password" required></div>
+            <div class="field"><label for="newPassword">New password</label><input id="newPassword" type="password" minlength="8" autocomplete="new-password" required></div>
+            <div class="field"><label for="confirmPassword">Confirm new password</label><input id="confirmPassword" type="password" minlength="8" autocomplete="new-password" required></div>
+            <div class="full"><button type="submit">Update password</button><p id="passwordMessage" class="message" role="status"></p></div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const state = {user:null,courses:[],questions:[],exams:[],results:[],currentExam:null,timerInterval:null,deadline:null,savedAnswers:{},editingQuestionId:null};
+const adminRole=()=>state.user&&String(state.user.role).toLowerCase()==="admin";
+const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+async function api(url,options={}){const response=await fetch(url,{...options,headers:{"Content-Type":"application/json",...(options.headers||{})}});const text=await response.text();let data;try{data=text?JSON.parse(text):{};}catch{data={message:text};}if(!response.ok)throw new Error(data.message||data.error||`Request failed (${response.status})`);return data;}
+function setMessage(id,text,kind=""){const el=$(id);if(el){el.textContent=text;el.className="message "+kind;}}
+function switchAuth(which){const login=which==="login";$("loginForm").classList.toggle("hidden",!login);$("registerForm").classList.toggle("hidden",login);$("loginTab").classList.toggle("selected",login);$("registerTab").classList.toggle("selected",!login);$("registerTab").classList.toggle("secondary",login);$("loginTab").classList.toggle("secondary",!login);$("authHeading").textContent=login?"Welcome back":"Create your account";$("authSubheading").textContent=login?"Sign in to continue to your account.":"Register as a student to take examinations.";setMessage("loginMessage","");setMessage("registerMessage","");}
+$("loginForm").addEventListener("submit",async e=>{e.preventDefault();setMessage("loginMessage","Signing in…");try{const data=await api("/api/login",{method:"POST",body:JSON.stringify({email:$("loginEmail").value.trim(),password:$("loginPassword").value})});if(!data.success||!data.user)throw new Error(data.message||"Login failed");state.user=data.user;openApp();}catch(err){setMessage("loginMessage",err.message,"error");}});
+$("registerForm").addEventListener("submit",async e=>{e.preventDefault();setMessage("registerMessage","Creating account…");const payload={name:$("regName").value.trim(),rollNumber:$("regRoll").value.trim(),contactNumber:$("regContact").value.trim(),email:$("regEmail").value.trim(),password:$("regPassword").value,role:"student"};try{const data=await api("/api/register",{method:"POST",body:JSON.stringify(payload)});setMessage("registerMessage",data.message||"Registration successful. You can now log in.","success");$("registerForm").reset();switchAuth("login");$("loginEmail").value=payload.email;setMessage("loginMessage","Registration successful. Please log in.","success");}catch(err){setMessage("registerMessage",err.message,"error");}});
+function openApp(){$("authView").classList.add("hidden");$("appView").classList.remove("hidden");$("userName").textContent=state.user.name||state.user.email;$("userRole").textContent=String(state.user.role||"student").toUpperCase();$("userAvatar").textContent=(state.user.name||state.user.email||"U").trim().charAt(0).toUpperCase();$("dashboardHeading").textContent=adminRole()?"Administrator Dashboard":"Student Dashboard";$("dashboardWelcome").textContent="Welcome, "+(state.user.name||state.user.email);buildNavigation();showPage("dashboardPage");refreshAll();}
+function buildNavigation(){const items=[["dashboardPage","Dashboard"],["subjectsPage","Subjects"],...(adminRole() ? [["questionsPage","Question bank"]] : []),["examsPage",adminRole()?"Manage examinations":"Available exams"],["resultsPage","Results & leaderboard"],["profilePage","My profile"]];$("sidebar").innerHTML=items.map(([id,label])=>`<button class="nav-btn" data-page="${id}" onclick="showPage('${id}')">${label}</button>`).join("");$("subjectAdminPanel").classList.toggle("hidden",!adminRole());$("questionAdminPanel").classList.toggle("hidden",!adminRole());$("examAdminPanel").classList.toggle("hidden",!adminRole());$("examListHeading").textContent=adminRole()?"Created examinations":"Available examinations";}
+function showPage(id){if(id==="questionsPage"&&!adminRole()){id="dashboardPage";alert("Question bank management is available to the administrator.");}document.querySelectorAll(".app-page").forEach(p=>p.classList.add("hidden"));$(id).classList.remove("hidden");document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.page===id));if(id==="subjectsPage")loadCourses();if(id==="questionsPage")loadQuestions();if(id==="examsPage")loadExams();if(id==="resultsPage")loadResults();if(id==="profilePage")loadProfile();}
+async function refreshAll(){await loadCourses();await loadExams();await loadResults();if(adminRole())await loadQuestions();}
+function logout(){if(state.timerInterval)clearInterval(state.timerInterval);state.user=null;state.currentExam=null;state.savedAnswers={};$("appView").classList.add("hidden");$("authView").classList.remove("hidden");$("loginForm").reset();$("registerForm").reset();switchAuth("login");}
+async function loadProfile(){
+  try {
+    const data = await api("/api/profile");
+    const user = data.user || data;
+    $("profileName").value = user.name || "";
+    $("profileEmail").value = user.email || "";
+    $("profileContact").value = user.contactNumber || "";
+    $("profileRoll").value = user.rollNumber || "";
+    $("profileRollField").classList.toggle("hidden", adminRole());
+    setMessage("profileMessage", "");
+    setMessage("passwordMessage", "");
+  } catch (err) {
+    setMessage("profileMessage", err.message, "error");
+  }
+}
+
+$("profileForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  try {
+    const payload = {
+      name: $("profileName").value.trim(),
+      email: $("profileEmail").value.trim(),
+      contactNumber: $("profileContact").value.trim()
+    };
+    if (!adminRole()) payload.rollNumber = $("profileRoll").value.trim();
+    const data = await api("/api/profile", { method: "PUT", body: JSON.stringify(payload) });
+    state.user = data.user;
+    $("userName").textContent = state.user.name || state.user.email;
+    $("userAvatar").textContent = (state.user.name || state.user.email || "U").trim().charAt(0).toUpperCase();
+    $("dashboardWelcome").textContent = "Welcome, " + (state.user.name || state.user.email);
+    setMessage("profileMessage", data.message || "Profile updated successfully.", "success");
+  } catch (err) {
+    setMessage("profileMessage", err.message, "error");
+  }
+});
+
+$("passwordForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const currentPassword = $("currentPassword").value;
+  const newPassword = $("newPassword").value;
+  const confirmPassword = $("confirmPassword").value;
+  if (newPassword.length < 8) {
+    setMessage("passwordMessage", "New password must contain at least 8 characters.", "error");
+    return;
+  }
+  if (newPassword !== confirmPassword) {
+    setMessage("passwordMessage", "New passwords do not match.", "error");
+    return;
+  }
+  try {
+    const data = await api("/api/profile/password", { method: "PUT", body: JSON.stringify({ currentPassword, newPassword }) });
+    $("passwordForm").reset();
+    setMessage("passwordMessage", data.message || "Password updated successfully.", "success");
+  } catch (err) {
+    setMessage("passwordMessage", err.message, "error");
+  }
+});
+
+async function loadCourses(){try{const data=await api("/api/courses");state.courses=Array.isArray(data)?data:(data.courses||[]);renderCourses();fillCourseSelects();$("statCourses").textContent=state.courses.length;}catch(err){$("dashboardCourses").innerHTML=`<div class="empty">Could not load subjects: ${esc(err.message)}</div>`;$("subjectsList").innerHTML=`<div class="empty">Could not load subjects: ${esc(err.message)}</div>`;}}
+function renderCourses(){const html=state.courses.length?state.courses.map(c=>`<article class="course-card"><h3>${esc(c.courseCode)}</h3><strong>${esc(c.courseName)}</strong><p>${esc(c.description||"")}</p></article>`).join(""):'<div class="empty">No subjects have been added yet.</div>';$("dashboardCourses").innerHTML=html;$("subjectsList").innerHTML=html;}
+function fillCourseSelects(){const opts=state.courses.map(c=>`<option value="${esc(c.courseCode)}">${esc(c.courseCode)} — ${esc(c.courseName)}</option>`).join("");["questionCourse","examCourse"].forEach(id=>{const el=$(id);if(el){const old=el.value;el.innerHTML=opts||'<option value="">Add a subject first</option>';if(old)el.value=old;}});const filter=$("questionFilter"),old=filter.value;filter.innerHTML='<option value="">All subjects</option>'+opts;filter.value=old;}
+$("courseForm").addEventListener("submit",async e=>{e.preventDefault();try{const data=await api("/api/courses",{method:"POST",body:JSON.stringify({courseCode:$("courseCode").value.trim().toUpperCase(),courseName:$("courseName").value.trim(),description:$("courseDescription").value.trim()})});setMessage("courseMessage",data.message||"Subject added.","success");$("courseForm").reset();await loadCourses();}catch(err){setMessage("courseMessage",err.message,"error");}});
+async function loadQuestions(){try{const data=await api("/api/questions");state.questions=Array.isArray(data)?data:(data.questions||[]);renderQuestions();}catch(err){$("questionsList").innerHTML=`<div class="empty">Could not load questions: ${esc(err.message)}</div>`;}}
+function renderQuestions(){const filter=$("questionFilter").value;const list=state.questions.filter(q=>!filter||q.courseCode===filter);if(!list.length){$("questionsList").innerHTML='<div class="empty">No questions found for this subject.</div>';return;}$("questionsList").innerHTML=list.map((q,i)=>{const opts=Array.isArray(q.options)?q.options:[];return `<article class="question-row"><div class="toolbar"><span class="badge">${esc(q.courseCode||"No subject")}</span><span class="badge">${esc(q.marks||1)} mark(s)</span><span class="muted small">Question ${i+1}</span>${adminRole()?`<span style="margin-left:auto" class="right-actions"><button class="secondary" onclick="editQuestion('${q._id}')">Edit</button><button class="danger" onclick="deleteQuestion('${q._id}')">Delete</button></span>`:""}</div><strong>${esc(q.question)}</strong><div class="options-list">${opts.map((o,j)=>`<div class="option">${String.fromCharCode(65+j)}. ${esc(o)}</div>`).join("")}</div>${adminRole()?`<div class="small muted">Correct answer: ${esc(q.correctAnswer)}</div>`:""}</article>`;}).join("");}
+$("questionFilter").addEventListener("change",renderQuestions);
+$("questionForm").addEventListener("submit",async e=>{e.preventDefault();const options=[$("optionA").value.trim(),$("optionB").value.trim(),$("optionC").value.trim(),$("optionD").value.trim()];const ci="ABCD".indexOf($("correctAnswer").value);const payload={courseCode:$("questionCourse").value,question:$("questionText").value.trim(),options,correctAnswer:options[ci],correctOption:$("correctAnswer").value,marks:Number($("questionMarks").value)};try{let data;if(state.editingQuestionId)data=await api(`/api/questions/${state.editingQuestionId}`,{method:"PUT",body:JSON.stringify(payload)});else data=await api("/api/questions",{method:"POST",body:JSON.stringify(payload)});setMessage("questionMessage",data.message||(state.editingQuestionId?"Question updated.":"Question saved."),"success");resetQuestionForm();await loadQuestions();}catch(err){setMessage("questionMessage",err.message,"error");}});
+function editQuestion(id){const q=state.questions.find(x=>String(x._id)===String(id));if(!q)return;state.editingQuestionId=id;$("questionFormHeading").textContent="Edit question";$("questionCourse").value=q.courseCode||"";$("questionText").value=q.question||"";const opts=Array.isArray(q.options)?q.options:[];["optionA","optionB","optionC","optionD"].forEach((field,i)=>$(field).value=opts[i]||"");const correct=String(q.correctOption||"");const ai=opts.findIndex(o=>o===q.correctAnswer);$("correctAnswer").value="ABCD".includes(correct)?correct:(ai>=0?"ABCD"[ai]:"A");$("questionMarks").value=q.marks||1;$("questionSaveButton").textContent="Update question";$("cancelQuestionEdit").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});}
+function resetQuestionForm(){state.editingQuestionId=null;$("questionForm").reset();$("questionMarks").value=1;$("questionFormHeading").textContent="Add question";$("questionSaveButton").textContent="Save question";$("cancelQuestionEdit").classList.add("hidden");}
+async function deleteQuestion(id){if(!confirm("Delete this question? This action cannot be undone."))return;try{const data=await api(`/api/questions/${id}`,{method:"DELETE"});alert(data.message||"Question deleted.");await loadQuestions();}catch(err){alert("Delete failed: "+err.message);}}
+async function loadExams(){try{const data=await api("/api/exams");state.exams=Array.isArray(data)?data:(data.exams||[]);$("statExams").textContent=state.exams.length;renderExams();}catch(err){$("examsList").innerHTML=`<div class="empty">Examination API is not available yet: ${esc(err.message)}. The backend exam routes need to be added.</div>`;$("statExams").textContent="0";}}
+function renderExams(){if(!state.exams.length){$("examsList").innerHTML='<div class="empty">No examinations have been created yet.</div>';return;}$("examsList").innerHTML=state.exams.map(ex=>{const done=!adminRole()&&state.results.some(r=>String(r.examId)===String(ex._id));return `<article class="question-row"><div class="toolbar"><span class="badge">${esc(ex.courseCode||"Subject")}</span><span class="badge">${esc(ex.duration||30)} minutes</span></div><h3>${esc(ex.examName||ex.name||"Examination")}</h3><p class="muted small">${esc(ex.startTime?new Date(ex.startTime).toLocaleString():"Available")} · ${esc(ex.questionCount||ex.questionIds?.length||"—")} questions</p>${adminRole()?'<span class="badge green">Created</span>':done?'<span class="badge green">Submitted — no retakes</span>':`<button onclick="startExam('${ex._id}')">Start examination</button>`}</article>`}).join("");}
+$("examForm").addEventListener("submit",async e=>{e.preventDefault();const payload={examName:$("examName").value.trim(),courseCode:$("examCourse").value,duration:Number($("examDuration").value),questionCount:Number($("examQuestionCount").value),startTime:$("examStart").value?new Date($("examStart").value).toISOString():null};try{const data=await api("/api/exams",{method:"POST",body:JSON.stringify(payload)});setMessage("examMessage",data.message||"Examination created.","success");$("examForm").reset();await loadExams();}catch(err){setMessage("examMessage",err.message,"error");}});
+async function startExam(id){try{const exam=state.exams.find(x=>String(x._id)===String(id));if(!exam)throw new Error("Examination not found.");const data=await api(`/api/exams/${id}/questions`);state.currentExam={...exam,questions:data.questions||data};state.savedAnswers={...(data.savedAnswers||{})};state.deadline=data.expiresAt?new Date(data.expiresAt).getTime():Date.now()+Number(exam.duration||30)*60000;$("activeExamName").textContent=exam.examName||exam.name||"Examination";$("activeExamMeta").textContent=`${exam.courseCode||""} · ${exam.duration||30} minutes · Saved answers are editable until submission`;$("saveAnswersButton").disabled=false;$("submitExamButton").disabled=false;renderAttempt();showPage("takeExamPage");startTimer();if(Number(data.remainingSeconds)===0)await submitExam(true);}catch(err){alert("Unable to start exam: "+err.message);}}
+function renderAttempt(){const qs=state.currentExam?.questions||[];$("attemptQuestions").innerHTML=qs.map((q,i)=>`<article class="question-row"><h3>${i+1}. ${esc(q.question)} <span class="badge">${esc(q.marks||1)} mark(s)</span></h3><div class="options-list">${(q.options||[]).map((option,j)=>`<label class="option"><input type="radio" name="answer_${q._id}" value="${esc(option)}" ${state.savedAnswers[q._id]===option?"checked":""} onchange="recordAnswer('${q._id}',this.value)"> <span>${String.fromCharCode(65+j)}. ${esc(option)}</span></label>`).join("")}</div></article>`).join("")||'<div class="empty">No questions are attached to this examination.</div>';updateProgress();}
+function recordAnswer(id,value){state.savedAnswers[id]=value;updateProgress();}
+function updateProgress(){const total=(state.currentExam?.questions||[]).length;const answered=Object.keys(state.savedAnswers).length;$("examProgress").style.width=(total?answered/total*100:0)+"%";}
+async function saveAnswers(){if(!state.currentExam)return;try{await api("/api/responses/save",{method:"POST",body:JSON.stringify({examId:state.currentExam._id,answers:state.savedAnswers})});setMessage("attemptMessage","Answers saved successfully. Your examination is NOT submitted; you may change answers and save again.","success");}catch(err){setMessage("attemptMessage",err.message,"error");if(/time has expired/i.test(err.message))await submitExam(true);}}
+$("saveAnswersButton").addEventListener("click",saveAnswers);
+$("attemptForm").addEventListener("submit",async e=>{e.preventDefault();if(!state.currentExam)return;if(!confirm("Submit your examination? You cannot change answers after submission."))return;await submitExam(false);});
+function startTimer(){if(state.timerInterval)clearInterval(state.timerInterval);const tick=()=>{const remaining=Math.max(0,state.deadline-Date.now());const mins=Math.floor(remaining/60000);const secs=Math.floor((remaining%60000)/1000);$("examTimer").textContent=String(mins).padStart(2,"0")+":"+String(secs).padStart(2,"0");if(remaining<=0){clearInterval(state.timerInterval);submitExam(true);}};tick();state.timerInterval=setInterval(tick,1000);}
+async function submitExam(automatic){if(!state.currentExam)return;if(state.timerInterval)clearInterval(state.timerInterval);$("submitExamButton").disabled=true;$("saveAnswersButton").disabled=true;try{const data=await api(`/api/exams/${state.currentExam._id}/submit`,{method:"POST",body:JSON.stringify({answers:state.savedAnswers,automatic})});state.currentExam=null;alert((automatic?"Time expired. ":"")+"Examination submitted successfully. Answers are now locked.");await loadExams();showPage("resultsPage");await loadResults();if(data.result)showResultSummary(data.result);}catch(err){setMessage("attemptMessage","Submission API is not available yet: "+err.message,"error");$("submitExamButton").disabled=false;$("saveAnswersButton").disabled=false;}}
+function showResultSummary(result){loadResults();}
+function pieStyle(correct,wrong,skipped){const total=correct+wrong+skipped;if(!total)return "conic-gradient(#e2e8f0 0% 100%)";const a=correct/total*100,b=(correct+wrong)/total*100;return `conic-gradient(#16a34a 0% ${a}%, #dc2626 ${a}% ${b}%, #94a3b8 ${b}% 100%)`;}
+function resultCard(r){const correct=Number(r.correctCount||0),wrong=Number(r.wrongCount||0),skipped=Number(r.skippedCount||0),attempted=Number(r.attemptedCount??(correct+wrong)),total=Number(r.totalQuestions??(correct+wrong+skipped)),marks=Number(r.marksObtained??r.score??0),totalMarks=Number(r.totalMarks??0),pct=totalMarks?Math.round(marks/totalMarks*100):0;return `<article class="result-card"><h2>${esc(r.examName||"Examination")}</h2><p class="muted small">${esc(r.courseCode||"")} · Submitted ${esc(r.submittedAt?new Date(r.submittedAt).toLocaleString():"—")}</p><div class="result-chart-row"><div class="pie-chart" role="img" aria-label="Correct ${correct}, wrong ${wrong}, skipped ${skipped}" style="background:${pieStyle(correct,wrong,skipped)}"></div><div class="chart-legend"><div class="legend-item"><span class="legend-dot" style="background:#16a34a"></span>Correct: <strong>${correct}</strong></div><div class="legend-item"><span class="legend-dot" style="background:#dc2626"></span>Wrong: <strong>${wrong}</strong></div><div class="legend-item"><span class="legend-dot" style="background:#94a3b8"></span>Skipped: <strong>${skipped}</strong></div></div></div><div class="result-metrics"><div class="result-metric"><span class="muted small">Attempted</span><strong>${attempted}/${total}</strong></div><div class="result-metric"><span class="muted small">Marks</span><strong>${marks}/${totalMarks}</strong></div><div class="result-metric"><span class="muted small">Percentage</span><strong>${pct}%</strong></div></div></article>`;}
+async function loadResults(){try{const data=await api(adminRole()?"/api/results":"/api/results/mine");state.results=Array.isArray(data)?data:(data.results||[]);$("statResults").textContent=state.results.length;renderResults();}catch(err){$("resultsList").innerHTML=`<div class="empty">Results API is not available yet: ${esc(err.message)}. The backend result routes need to be added.</div>`;$("dashboardResults").textContent="Results will appear here when the result API is available.";}}
+function renderResults(){const rows=[...state.results].sort((a,b)=>Number(b.marksObtained??b.score??0)-Number(a.marksObtained??a.score??0));if(!rows.length){$("resultsList").innerHTML='<div class="empty">No results recorded yet.</div>';$("dashboardResults").textContent="No results recorded yet.";if(!adminRole())renderExams();return;}if(!adminRole()){$("resultsList").innerHTML=rows.map(resultCard).join("");$("dashboardResults").innerHTML=`<span class="badge green">${rows.length} result(s) recorded</span><p class="muted small">Open Results & leaderboard to see your result charts.</p>`;renderExams();return;}$("resultsList").innerHTML=`<div class="table-wrap"><table><thead><tr><th>Rank</th><th>Roll number</th><th>Student</th><th>Examination</th><th>Marks</th><th>Correct</th><th>Wrong</th><th>Skipped</th><th>Submitted</th></tr></thead><tbody>${rows.map((r,i)=>`<tr><td><strong>${i+1}</strong></td><td>${esc(r.rollNumber||"—")}</td><td>${esc(r.studentName||r.name||"—")}</td><td>${esc(r.examName||r.examId||"—")}</td><td><strong>${esc(r.marksObtained??r.score??0)}/${esc(r.totalMarks??"—")}</strong></td><td>${Number(r.correctCount||0)}</td><td>${Number(r.wrongCount||0)}</td><td>${Number(r.skippedCount||0)}</td><td>${esc(r.submittedAt?new Date(r.submittedAt).toLocaleString():"—")}</td></tr>`).join("")}</tbody></table></div>`;$("dashboardResults").innerHTML=`<span class="badge green">${rows.length} result(s) recorded</span><p class="muted small">Open Results & leaderboard to see the full ranking.</p>`;}
+</script>
+</body>
+</html>
